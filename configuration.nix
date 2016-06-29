@@ -142,6 +142,10 @@
 
   users.mutableUsers = false;
 
+  # Links this file from /run/current-system/configuration.nix which can be
+  # useful for debugging.
+  system.copySystemConfiguration = true;
+
   # The NixOS release to be compatible with for stateful data such as databases.
   system.stateVersion = "16.03";
 }
