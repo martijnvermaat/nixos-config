@@ -10,9 +10,6 @@
       ./hardware-configuration.nix
     ];
 
-  # https://bugzilla.kernel.org/show_bug.cgi?id=110941
-  boot.kernelParams = [ "intel_pstate=no_hwp" ];
-
   fileSystems."/".options = [ "noatime" "nodiratime" "discard" ];
 
   # Use the GRUB 2 boot loader.
