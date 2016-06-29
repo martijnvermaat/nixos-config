@@ -55,6 +55,9 @@
   environment.systemPackages = with pkgs; [
   ];
 
+  # Needed to preserve current working directory when opening new tabs.
+  environment.interactiveShellInit = ". ${pkgs.gnome3.vte}/etc/profile.d/vte.sh";
+
   programs.bash.enableCompletion = true;
 
   nix.useChroot = true;
