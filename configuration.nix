@@ -137,6 +137,8 @@
   services.xserver.startGnuPGAgent = true;
   services.xserver.startSSHAgent = false;
 
+  services.gnome3.tracker.enable = false;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.extraUsers.martijn = {
     description = "Martijn Vermaat";
