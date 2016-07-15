@@ -96,6 +96,11 @@
   # https://bugzilla.redhat.com/show_bug.cgi?id=1327495
   #services.fprintd.enable = true;
 
+  services.avahi.enable = true;
+  services.avahi.hostName = "tipi";
+  services.avahi.browseDomains = [ ];
+  services.avahi.nssmdns = true;
+
   # Enable the X11 windowing system.
   services.xserver.enable = true;
   #services.xserver.layout = "us";
