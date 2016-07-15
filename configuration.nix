@@ -73,13 +73,18 @@
   # https://github.com/NixOS/nixpkgs/issues/16609
   #virtualisation.virtualbox.host.enable = true;
 
+  virtualisation.docker.enable = true;
+
   # List services that you want to enable:
 
   services.postgresql.enable = true;
   services.postgresql.package = pkgs.postgresql94;
   services.postgresql.authentication = "local all all ident";
 
+  services.rabbitmq.enable = true;
+
   services.redis.enable = true;
+
   services.locate.enable = true;
 
   # Enable the OpenSSH daemon.
@@ -139,7 +144,7 @@
     uid = 1000;
     isNormalUser = true;
     group = "users";
-    extraGroups = [ "wheel" "networkmanager" "vboxuser" ];
+    extraGroups = [ "wheel" "networkmanager" "vboxuser" "docker" ];
     home = "/home/martijn";
   };
 
