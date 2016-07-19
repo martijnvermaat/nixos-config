@@ -12,9 +12,6 @@
 
   fileSystems."/".options = [ "noatime" "nodiratime" "discard" ];
 
-  # Oh yes living on the edge.
-  boot.kernelPackages = pkgs.linuxPackages_4_6;
-
   # Use the GRUB 2 boot loader.
   boot.loader.grub.enable = true;
   boot.loader.grub.version = 2;
