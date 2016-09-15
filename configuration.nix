@@ -35,6 +35,21 @@
 
   boot.cleanTmpDir = true;
 
+  # Some configuration for those annoying Apple keyboards.
+  boot.extraModprobeConfig = ''
+    # Function/media keys:
+    #   0: Function keys only.
+    #   1: Media keys by default.
+    #   2: Function keys by default.
+    options hid_apple fnmode=2
+
+    # Fix tilde/backtick key.
+    options hid_apple iso_layout=0
+
+    # Swap Alt key and Command key.
+    options hid_apple swap_opt_cmd=1
+  '';
+
   networking.hostName = "tipi";
 
   # Select internationalisation properties.
