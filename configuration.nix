@@ -60,6 +60,7 @@
   # };
 
   # Set your time zone.
+  #time.timeZone = "US/Eastern";
   time.timeZone = "Europe/Amsterdam";
 
   # List packages installed in system profile. To search by name, run:
