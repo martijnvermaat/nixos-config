@@ -98,6 +98,11 @@
 
   services.redis.enable = true;
 
+  # Consul 0.7.0
+  services.consul.enable = true;
+  services.consul.package = (import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/b6f7a02d65c0a96eee47da2035e18c0bfd29c445.tar.gz") {}).consul;
+  services.consul.webUi = true;
+
   services.locate.enable = true;
 
   # Enable the OpenSSH daemon.
