@@ -73,14 +73,11 @@
 
   programs.bash.enableCompletion = true;
 
-  nix.useChroot = true;
+  programs.ssh.startAgent = true;
+
+  nix.useSandbox = true;
 
   nixpkgs.config.allowUnfree = true;
-
-  nixpkgs.config.packageOverrides = pkgs: with pkgs; {
-    # https://github.com/NixOS/nixpkgs/commit/b741df943fbe7dbbf8d2f295f9aaa0ce3991a5d2
-    system-config-printer = callPackage ./packages/system-config-printer/default.nix {};
-  };
 
   # https://github.com/NixOS/nixpkgs/issues/15005
   # https://github.com/NixOS/nixpkgs/issues/16609
@@ -126,8 +123,9 @@
   services.xserver.displayManager.gdm.autoLogin.enable = true;
   services.xserver.displayManager.gdm.autoLogin.user = "martijn";
 
-  services.xserver.synaptics.enable = true;
-  services.xserver.synaptics.accelFactor = "0.02";
+  services.xserver.libinput.enable = true;
+  services.xserver.libinput.accelSpeed = "0.2";
+  services.xserver.libinput.tappingDragLock = false;
 
   #Option "Scale"   "1.5x1.5"
   #services.xserver.monitorSection = ''
@@ -150,11 +148,6 @@
   # NOTE: Seems to be overwritten by Gnome.
   #services.xserver.displayManager.xserverArgs = [ "-dpi 216" ];
 
-  # Todo: This will change after NixOS 16.03.
-  # https://github.com/NixOS/nixpkgs/pull/14012
-  services.xserver.startGnuPGAgent = true;
-  services.xserver.startSSHAgent = false;
-
   services.gnome3.tracker.enable = false;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -175,5 +168,5 @@
   system.copySystemConfiguration = true;
 
   # The NixOS release to be compatible with for stateful data such as databases.
-  system.stateVersion = "16.03";
+  system.stateVersion = "16.09";
 }
