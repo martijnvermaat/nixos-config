@@ -124,7 +124,7 @@
   services.xserver.displayManager.gdm.autoLogin.user = "martijn";
 
   services.xserver.libinput.enable = true;
-  services.xserver.libinput.accelSpeed = "0.2";
+  services.xserver.libinput.accelSpeed = "0.6";
   services.xserver.libinput.tappingDragLock = false;
 
   #Option "Scale"   "1.5x1.5"
