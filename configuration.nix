@@ -82,11 +82,8 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  # https://github.com/NixOS/nixpkgs/issues/15005
-  # https://github.com/NixOS/nixpkgs/issues/16609
-  #virtualisation.virtualbox.host.enable = true;
-
   virtualisation.docker.enable = true;
+  virtualisation.virtualbox.host.enable = true;
 
   # List services that you want to enable:
 
