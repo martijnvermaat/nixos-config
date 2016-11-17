@@ -87,6 +87,27 @@
 
   # List services that you want to enable:
 
+  services.autossh.sessions = [
+    {
+      name = "wetransfer-wtcc";
+      user = "martijn";
+      extraArguments = "-N -o ServerAliveCountMax=3 -o ServerAliveInterval=15 -o ExitOnForwardFailure=yes -D 3002 -L 8400:localhost:8400 -L 8500:localhost:8500 wtcc-jump";
+    }
+    {
+      name = "pi-socks";
+      user = "martijn";
+      extraArguments = "-N -o ServerAliveInterval=15 -o ExitOnForwardFailure=yes -D 8123 -C pi.remote";
+    }
+  ];
+
+  # https://github.com/NixOS/nixpkgs/issues/17901
+  systemd.services.autossh-wetransfer-wtcc.environment = {
+    SSH_AUTH_SOCK = "/run/user/1000/keyring/ssh";
+  };
+  systemd.services.autossh-pi-socks.environment = {
+    SSH_AUTH_SOCK = "/run/user/1000/keyring/ssh";
+  };
+
   services.postgresql.enable = true;
   services.postgresql.package = pkgs.postgresql94;
   services.postgresql.authentication = "local all all ident";
